@@ -1,3 +1,4 @@
+using FluentAssertions;
 using Net22_WebApp;
 
 namespace TestProject2
@@ -25,12 +26,25 @@ namespace TestProject2
             //Arrange
             Numbers num = new Numbers();
             var actual = num.Add(11, 12);
-            var expected = 22;
+            var expected = 23;
 
             //Act
             Assert.AreEqual(expected, actual);
 
             //Assert
+        }
+
+        [TestMethod]
+        public void FluentAssertion_Test()
+        {
+            string name = "Tobias";
+            //name.Should().StartWith("T").And.EndWith("s");
+
+            int number = 22;
+            //number.Should().BeLessThanOrEqualTo(23);
+
+            List<string> namelist = new List<string>() { "Ante", "Reidar", "Harry" };
+            namelist.Should().HaveCount(3);
         }
     }
 }
